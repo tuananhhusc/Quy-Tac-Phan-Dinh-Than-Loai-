@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { BookOpen, ChevronUp, Moon, Sun, Type, Maximize, Settings2 } from "lucide-react";
+import { BookOpen, ChevronUp, Moon, Sun, Type, Maximize, Minimize, Settings2 } from "lucide-react";
 import { useAppContext } from "./Providers";
 
 export default function Header() {
@@ -138,6 +138,17 @@ export default function Header() {
       >
         <ChevronUp size={20} />
       </button>
+      {/* Exit Focus Mode Button */}
+      {focusMode && (
+        <button
+          onClick={() => setFocusMode(false)}
+          aria-label="Thoát chế độ tập trung"
+          className="fixed top-6 right-6 z-50 flex h-10 px-4 items-center gap-2 rounded-full bg-burgundy text-parchment shadow-lg transition-all duration-300 hover:bg-burgundy-dark hover:shadow-xl animate-fade-in-up"
+        >
+          <Minimize size={16} />
+          <span className="text-sm font-medium" style={{ fontFamily: "var(--font-sans), Inter, sans-serif" }}>Thoát chuyên tâm</span>
+        </button>
+      )}
     </>
   );
 }
