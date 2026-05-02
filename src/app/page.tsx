@@ -1,65 +1,113 @@
-import Image from "next/image";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import ReadingProgressBar from "../components/ReadingProgressBar";
+import TableOfContents from "../components/TableOfContents";
+import ArticlePartOne from "../components/ArticlePartOne";
+import ArticlePartTwo from "../components/ArticlePartTwo";
+import ArticlePartThree from "../components/ArticlePartThree";
+import ArticlePartFour from "../components/ArticlePartFour";
+import ReflectionTool from "../components/ReflectionTool";
+import { Clock } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <>
+      <ReadingProgressBar />
+      <Header />
+
+      <main className="flex-1">
+        {/* Hero / Title Block */}
+        <div className="relative overflow-hidden bg-parchment pt-12 pb-10 sm:pt-16 sm:pb-14">
+          {/* Subtle Sunburst Radial Gradient */}
+          <div className="absolute inset-0 pointer-events-none" 
+               style={{ background: "radial-gradient(circle at top center, rgba(197, 179, 88, 0.1) 0%, transparent 60%)" }} 
+          />
+          <div className="relative mx-auto max-w-3xl px-4 sm:px-6 text-center">
+            {/* Jesuit AMDG Heading */}
+            <div 
+              className="text-burgundy/70 font-semibold tracking-[0.4em] text-sm mb-6 uppercase"
+              style={{ fontFamily: "var(--font-display), 'Cormorant Garamond', serif" }}
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              A. M. D. G.
+            </div>
+
+            {/* Small label */}
+            <div className="mb-6 inline-flex flex-wrap justify-center items-center gap-3">
+              <div className="inline-flex items-center gap-2 rounded-full border border-gold/30 px-4 py-1.5 bg-parchment/80 shadow-sm">
+                <span className="inline-block h-1.5 w-1.5 rounded-full bg-burgundy" />
+                <span
+                  className="text-xs font-medium tracking-wider uppercase text-text-muted"
+                  style={{ fontFamily: "var(--font-sans), Inter, sans-serif" }}
+                >
+                  Báo Cáo Nghiên Cứu Chuyên Sâu
+                </span>
+              </div>
+              <div className="inline-flex items-center gap-1.5 rounded-full border border-border-light px-3 py-1.5 bg-parchment/50">
+                <Clock size={12} className="text-gold-dark" />
+                <span
+                  className="text-[11px] font-medium uppercase text-text-muted"
+                  style={{ fontFamily: "var(--font-sans), Inter, sans-serif" }}
+                >
+                  ~ 25 phút đọc
+                </span>
+              </div>
+            </div>
+
+            {/* Title */}
+            <h1
+              className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-burgundy mb-4"
+              style={{ fontFamily: "var(--font-display), 'Cormorant Garamond', serif" }}
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              Quy Tắc Phân Định Thần Loại Trong Thần Học Công Giáo Và Cấu Trúc Linh Đạo Dòng Tên
+            </h1>
+
+            {/* Ornamental line - IHS Monogram */}
+            <div className="flex items-center justify-center gap-4 mt-8 mb-6">
+              <div className="h-px w-16 sm:w-24 bg-gradient-to-r from-transparent via-gold/50 to-gold" />
+              <div 
+                className="text-gold-dark text-xl sm:text-2xl tracking-[0.15em] font-bold flex items-center justify-center relative"
+                style={{ fontFamily: "var(--font-display), 'Cormorant Garamond', serif" }}
+              >
+                {/* Subtle glowing sunburst behind IHS */}
+                <div className="absolute w-12 h-12 bg-gold/20 blur-xl rounded-full"></div>
+                I H S
+              </div>
+              <div className="h-px w-16 sm:w-24 bg-gradient-to-l from-transparent via-gold/50 to-gold" />
+            </div>
+
+            {/* Subtitle */}
+            <p
+              className="text-sm text-text-muted italic max-w-xl mx-auto"
+              style={{ fontFamily: "var(--font-serif), 'EB Garamond', serif" }}
+            >
+              Phân tích toàn diện về nguồn gốc lịch sử, nền tảng Kinh Thánh,
+              cấu trúc quy tắc phân định của Thánh I-nhã Loyola, và thực hành
+              trong huấn quyền Giáo hội đương đại.
+            </p>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* Content Area: TOC + Article */}
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+          <div className="flex gap-8 lg:gap-12 relative items-start">
+            <TableOfContents />
+
+            {/* Article */}
+            <article className="article-prose mx-auto max-w-3xl min-w-0 flex-1">
+              <ArticlePartOne />
+              <ArticlePartTwo />
+              <ArticlePartThree />
+              
+              {/* Tool phản tỉnh trước phần kết luận/tài liệu tham khảo để không ngắt dòng quá muộn */}
+              <ReflectionTool />
+
+              <ArticlePartFour />
+            </article>
+          </div>
         </div>
       </main>
-    </div>
+
+      <Footer />
+    </>
   );
 }
